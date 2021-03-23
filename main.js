@@ -2,7 +2,7 @@
 function renderDay(){
     var d  = new Date();
     var weekday =document.querySelector('.day');
-    document.querySelector('.time').textContent = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+    document.querySelector('.time').textContent = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
     document.querySelector('.announcement').textContent = '公告:自109 年12/31 起將由廠商統一包裝成10 片/包';
         switch (d.getDay()){
     case 1:
