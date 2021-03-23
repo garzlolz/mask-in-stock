@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全國口罩數量</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>全國口罩數量</h1>
+        <p>星期<span class="day"></span> 今天是 <span class="time"></span></p>
+        <p class="announcement"></p> <p>上次更新於: <em class="updatedtime"></em></p>
+        <select name="市" id="city"></select>
+       <!---- <select name="區" id="city_loc"><option>-----</option></select>-->
+        <div class="list">
+            <img src="loading.gif" id="loadingpic" alt="error" width="40">
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
