@@ -1,0 +1,32 @@
+body{
+    width: 80%;
+    margin: auto;
+    height: auto;
+    padding: auto;
+}
+/*header*/
+.header{
+    background: rgba(86, 193, 212, 0.7) 0% 0% no-repeat padding-box;
+    color: white;
+    text-align: center;
+    
+    border-radius: 8px;
+}
+.announcement{
+    color: yellow;
+    font-size: larger;
+}
+select{
+   height: 36px;
+   border-radius: 8px;
+   background-color: rgba(236, 209, 56, 0.3);
+}
+select:hover{
+    background-color: rgba(235, 203, 21, 0.6);
+}
+/*list*/
+
+.container{
+    text-align: center;
+    font-size: 33px;
+}

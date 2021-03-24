@@ -39,11 +39,15 @@ var uptime= document.querySelector('.updatedtime');
 var list = document.querySelector('.list');
 var img = document.querySelector('#loadingpic');
 var citys = document.querySelector('#city');
+var town = document.querySelector('#town');
+var title = document.querySelector('.title');
 citys.addEventListener('change',changelocal,false);
 
 
 //取得資料
+var result ;
 var data;
+
 function getdata(){
     var xhr = new XMLHttpRequest();
     xhr.open('get','https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json');
@@ -52,7 +56,7 @@ function getdata(){
             document.querySelector('#loadingpic').style.display = 'none';
              data = JSON.parse(xhr.responseText);
              renderoption();
-            
+             result = data.features;
         };
     };
 
@@ -79,32 +83,50 @@ function renderoption(){
             }
             str+=` <option data-index='${j}' class="local">${resault[i].properties.county}</option>`;
             citys.innerHTML = str;
-            j++
+            
+            j++;
+            town.innerHTML = '';
         }
+
     }  
-  
+    town.innerHTML = `<option>一一一一一</option>` 
 }
 //顯示 第二個selector
 function changelocal(){
     
-    var str2 ='<option>請選擇區域</option>';
+    var str2 ='<option>請選擇行政區</option>';
+        let temp = [];
 
         for(var i=0;i<data.features.length;i++){
-            if(citys.value == data.features[i].properties.county){
-                str2+=`<option>${data.features[i].properties.town}</option>`;
-                document.querySelector('#town').innerHTML = str2;
+            if(city.value == data.features[i].properties.county){
+                temp.push(data.features[i].properties.town);
+            }
+            else{
+                town.innerHTML =`<option>無此行政區</option>`
             }
         }
+        var noreaptemp = temp.filter(function(element, index ,arr){
+            return arr.indexOf(element) === index;
+        });
+        for(var i=0;i<noreaptemp.length;i++){
+            str2+=`<option>${noreaptemp[i]}</option>`;
+            town.innerHTML = str2;
+        };
+        town.addEventListener('change',changeList);
+        
     }
 
 
-   /* var str = ''
-    for(var i=0;i<data.features.length;i++){
-     if(city.value == data.features[i].properties.county){
-         str+=`<div data-index=${i}>${data.features[i].properties.name}</div>`+
-              `<div class = mask>成人口罩數量: <span>${data.features[i].properties.mask_adult}</span>童口罩數量: <span>${data.features[i].properties.mask_child}</span></div>`
-     }
-     list.innerHTML = str;
- }
-} */
+    function changeList(){
+        title.textContent = town.value;
+        var str3 = ''
+        for(var i=0;i<result.length;i++){
+            if(citys.value == result[i].properties.county && town.value == result[i].properties.town){
+                str3 += `<div data-index=${i}><div class = "storeName">${data.features[i].properties.name}</div>`+
+                `<div class = adultMask>成人口罩數量: <span>${data.features[i].properties.mask_adult}</span></div><div>童口罩數量: <span>${data.features[i].properties.mask_child}</span></div>`+
+                `<p class="address">完整地址:<a href="#">${result[i].properties.address}</span></a></div>`;
 
+                list.innerHTML = str3 ;
+            }
+        }
+    }
