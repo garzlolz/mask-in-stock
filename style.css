@@ -9,7 +9,6 @@ body{
     background: rgba(86, 193, 212, 0.7) 0% 0% no-repeat padding-box;
     color: white;
     text-align: center;
-    
     border-radius: 8px;
 }
 .announcement{
@@ -19,14 +18,69 @@ body{
 select{
    height: 36px;
    border-radius: 8px;
-   background-color: rgba(236, 209, 56, 0.3);
+   background-color: white;
+   color: black;
 }
 select:hover{
     background-color: rgba(235, 203, 21, 0.6);
 }
-/*list*/
-
+/*title*/
+hr{
+    border:2px solid rgb(117, 117, 201);
+    border-radius: 6px;   
+}
+.title{
+    background-color: rgba(23, 121, 128, 0.9);
+    font-size: 50px;
+    border-radius: 6px;
+    width: 500px;
+    margin: auto;
+}
+/*content*/
 .container{
     text-align: center;
+    font-size: 20px;
+    background-color:rgba(86, 193, 212, 0.7);
+}
+
+.listData{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(19, 133, 153, 0.7);
+    border-radius: 6px;
+}
+.storeName{
     font-size: 33px;
+    background-color: rgba(235, 203, 21);
+    margin: auto;
+    border-radius: 6px;
+    border:2px black solid;
+    width: 600px;
+}
+.Mask{
+    padding-top: 10px;
+    background-color:rgba(37, 205, 235, 0.6) ;
+    margin: auto;
+    width: 250px;
+    height: 45px;
+    border-radius: 10px;
+}
+.total{
+    padding: 2px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border:black 2px solid;
+}
+
+
+/*footer*/
+
+.footer{
+    height: 150px;
+    margin-top: 5px;
+    background-color: rgb(127, 127, 211);
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 6px;
 }

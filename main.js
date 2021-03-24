@@ -122,9 +122,13 @@ function changelocal(){
         var str3 = ''
         for(var i=0;i<result.length;i++){
             if(citys.value == result[i].properties.county && town.value == result[i].properties.town){
-                str3 += `<div data-index=${i}><div class = "storeName">${data.features[i].properties.name}</div>`+
-                `<div class = adultMask>成人口罩數量: <span>${data.features[i].properties.mask_adult}</span></div><div>童口罩數量: <span>${data.features[i].properties.mask_child}</span></div>`+
-                `<p class="address">完整地址:<a href="#">${result[i].properties.address}</span></a></div>`;
+                str3 += 
+                `<div data-index=${i} class="listData">
+                    <div class = "storeName">${data.features[i].properties.name}</div><br>
+                    <div class = "Mask">成人口罩數量: <span class = "total">${data.features[i].properties.mask_adult}</span></div><br>
+                    <div class = "Mask">孩童口罩數量: <span class = "total">${data.features[i].properties.mask_child}</span></div>
+                <p class="address">完整地址:<a href="#">${result[i].properties.address}</span></a>
+                </div>`;
 
                 list.innerHTML = str3 ;
             }
