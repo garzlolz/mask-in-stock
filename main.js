@@ -36,6 +36,12 @@ init();
 
 
 var uptime= document.querySelector('.updatedtime');
+var list = document.querySelector('.list');
+var img = document.querySelector('#loadingpic');
+var citys = document.querySelector('#city');
+citys.addEventListener('change',changelocal,false);
+
+
 //取得資料
 var data;
 function getdata(){
@@ -48,14 +54,15 @@ function getdata(){
              renderoption();
             
         };
-    }
+    };
 
-//顯示option
+    
+
+//顯示第一個selector
 function renderoption(){
     var resault = data.features;
     uptime.textContent = resault[0].properties.updated;
-    var citys = document.querySelector('#city');
-    var str = '<option>請選擇地區</option>';
+    var str = '<option>請選擇縣市</option>';
 
     let temp = [];
     let j =0;
@@ -75,20 +82,29 @@ function renderoption(){
             j++
         }
     }  
-    document.querySelector('#city').addEventListener('change',changelocal,false);
-    var list = document.querySelector('.list');
-
-    console.log(data.features[0].properties.name)
-//
-    function changelocal(){
-        var str = ''
-        for(var i=0;i<resault.length;i++){
-         if(city.value == resault[i].properties.county){
-             str+=`<div data-index=${i}>${resault[i].properties.name}</div>`+
-                  `<div class = mask>成人口罩數量: <span>${resault[i].properties.mask_adult}</span>童口罩數量: <span>${resault[i].properties.mask_child}</span></div>`
-         }
-         list.innerHTML = str;
-     }
-    }   
+  
 }
+//顯示 第二個selector
+function changelocal(){
+    
+    var str2 ='<option>請選擇區域</option>';
+
+        for(var i=0;i<data.features.length;i++){
+            if(citys.value == data.features[i].properties.county){
+                str2+=`<option>${data.features[i].properties.town}</option>`;
+                document.querySelector('#town').innerHTML = str2;
+            }
+        }
+    }
+
+
+   /* var str = ''
+    for(var i=0;i<data.features.length;i++){
+     if(city.value == data.features[i].properties.county){
+         str+=`<div data-index=${i}>${data.features[i].properties.name}</div>`+
+              `<div class = mask>成人口罩數量: <span>${data.features[i].properties.mask_adult}</span>童口罩數量: <span>${data.features[i].properties.mask_child}</span></div>`
+     }
+     list.innerHTML = str;
+ }
+} */
 
