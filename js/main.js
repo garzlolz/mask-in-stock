@@ -127,7 +127,7 @@ function changelocal(){
                     <div class = "storeName">${data.features[i].properties.name}</div><br>
                     <div class = "Mask">成人口罩數量: <span class = "total">${data.features[i].properties.mask_adult}</span></div><br>
                     <div class = "Mask">孩童口罩數量: <span class = "total">${data.features[i].properties.mask_child}</span></div>
-                <p class="address">完整地址:<a href="https://www.google.com.tw/maps/place/${result[i].properties.name}" target=_"blank">${result[i].properties.address}</span></a>
+                <p class="address">完整地址:<a href="https://www.google.com.tw/maps/place/${result[i].properties.address}" target=_"blank">${result[i].properties.address}</span></a>
                 <p>連絡電話:<span> ${data.features[i].properties.phone}</span> </p>
                 </div>`;
 
