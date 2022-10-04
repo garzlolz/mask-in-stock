@@ -1,4 +1,4 @@
-# mask_api
+# mask in stock
 url = https://garzlolz.github.io/mask_api/
 
 json = https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json
